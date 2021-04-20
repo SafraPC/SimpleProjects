@@ -7,7 +7,9 @@ body {
   padding: 1rem;
   margin: 0 auto;
 }
-
+.alignCenter {
+  text-align: center;
+}
 .myContent {
   border-left: 1px solid gray;
   border-radius: 0.3rem;

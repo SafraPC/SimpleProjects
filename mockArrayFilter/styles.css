@@ -1,26 +1,46 @@
 body {
   background-color: #fff;
+  margin-bottom: 5rem;
+}
+.myDiv {
+  border-radius: 0.3rem;
+  padding: 1rem;
+  margin: 0 auto;
 }
 
 .myContent {
-  border: 1px solid gray;
+  border-left: 1px solid gray;
   border-radius: 0.3rem;
   display: flex;
+  width: 75%;
+  margin: 0 auto;
+  margin: 0 auto;
 }
 .myDetails {
+  border-top: 1px solid gray;
   border-right: 1px solid gray;
   text-align: center;
   justify-content: center;
+  width: 50%;
   justify-items: center;
 }
+
 .myDetails h3 {
   padding: 1rem;
   border-bottom: 1px solid gray;
+  transition: background-color 0.3s ease;
   margin: 0 auto;
 }
+.myDetails h3:hover {
+  background-color: #e8e6e1;
+}
 .myDetails p {
+  transition: background-color 0.3s ease;
   border-bottom: 1px solid gray;
   margin: 0 auto;
   padding: 1rem;
   font-size: 17px;
+}
+.myDetails p:hover {
+  background-color: #e8e6e1;
 }

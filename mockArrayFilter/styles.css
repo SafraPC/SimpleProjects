@@ -1,0 +1,26 @@
+body {
+  background-color: #fff;
+}
+
+.myContent {
+  border: 1px solid gray;
+  border-radius: 0.3rem;
+  display: flex;
+}
+.myDetails {
+  border-right: 1px solid gray;
+  text-align: center;
+  justify-content: center;
+  justify-items: center;
+}
+.myDetails h3 {
+  padding: 1rem;
+  border-bottom: 1px solid gray;
+  margin: 0 auto;
+}
+.myDetails p {
+  border-bottom: 1px solid gray;
+  margin: 0 auto;
+  padding: 1rem;
+  font-size: 17px;
+}

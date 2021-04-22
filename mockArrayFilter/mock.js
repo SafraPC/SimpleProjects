@@ -51,11 +51,11 @@ const myNames = document.getElementById('names')
 const myAges = document.getElementById('ages')
 
 mockData.forEach(item=>{
+    //for labels
     const names = document.createElement('p');
     names.innerText = item.label;
     myNames.appendChild(names);
-})
-mockData.forEach(item=>{
+    //for ages
     const ages = document.createElement('p');
     ages.innerText = item.age;
     myAges.appendChild(ages);

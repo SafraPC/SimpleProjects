@@ -1,73 +1,21 @@
-class AudioTest {
-	mediaRecorder;
-	isMediaRecording = false;
-	gravar = document.getElementById("gravar");
-	parar = document.getElementById("parar");
-
-	constructor() {
-		this.gravar.addEventListener("click", this.start);
-		this.parar.addEventListener("click", this.stop);
-		if (
-			!this.isMediaRecording &&
-			navigator.mediaDevices &&
-			navigator.mediaDevices.getUserMedia
-		) {
-			console.log("getUserMedia supported");
-		} else {
-			console.log("getUserMedia is not supportapped on your browser!");
-		}
-	}
-
-	start = () => {
-		navigator.mediaDevices.getUserMedia({ audio: true }).then(
-			(stream) => {
-				this.mediaRecorder = new MediaRecorder(stream);
-				let chunks = [];
-				this.isMediaRecording = true;
-				this.mediaRecorder.ondataavailable = (data) => {
-					console.log(data);
-					chunks.push(data.data);
-				};
-				this.mediaRecorder.start();
-				// setTimeout(() => mediaRecorder.stop(), 15000);
-			},
-			(err) => {
-				console.log("erros :" + err);
-			}
-		);
-	};
-
-	stop = () => {
-		navigator.mediaDevices.getUserMedia({ audio: true }).then(
-			() => {
-				console.log(this);
-				this.mediaRecorder.onstop = () => {
-					const blob = new Blob(chunks, { type: "audio/mp3; code=opus" });
-					const reader = new window.FileReader();
-					reader.readAsDataURL(blob);
-					reader.onloadend = () => {
-						console.log(reader.result);
-					};
-					console.log("stop");
-				};
-			},
-			(err) => {
-				console.log("erros :" + err);
-			}
-		);
-	};
-}
-
 class MyMediaRecorder {
 	buttonStart = document.querySelector("#gravar");
 	buttonStop = document.querySelector("#parar");
+	buttonCancel = document.querySelector("#cancelar");
 
 	mediaRecorder;
 	audioChunks;
+	isMediaRecording = false;
+	isCancel = false;
 
 	constructor() {
 		this.buttonStart.addEventListener("click", this.start);
 		this.buttonStop.addEventListener("click", this.stop);
+		this.buttonCancel.addEventListener("click", () => {
+			this.isCancel = true;
+			this.stop();
+		});
+
 		navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
 			this.mediaRecorder = new MediaRecorder(stream);
 			this.audioChunks = [];
@@ -79,11 +27,22 @@ class MyMediaRecorder {
 	}
 
 	start = () => {
+		if (this.isMediaRecording) return;
+		this.audioChunks = [];
+		this.isCancel = false;
 		this.mediaRecorder.start();
+		this.isMediaRecording = true;
 	};
 
 	stop = () => {
+		if (this.mediaRecorder.state === "inactive") return;
 		this.mediaRecorder.addEventListener("stop", () => {
+			if (this.isCancel || this.isMediaRecording) {
+				this.audioChunks = [];
+				this.isMediaRecording = false;
+				return;
+			}
+
 			const audioBlob = new Blob(this.audioChunks, {
 				type: "audio/mp3; code=opus",
 			});
@@ -91,7 +50,7 @@ class MyMediaRecorder {
 			reader.readAsDataURL(audioBlob);
 
 			reader.addEventListener("loadend", (res) => {
-				console.log(res.target.result);
+				// console.log(res.target.result);
 			});
 
 			const audioUrl = URL.createObjectURL(audioBlob);
@@ -99,9 +58,9 @@ class MyMediaRecorder {
 			audio.play();
 		});
 
+		this.isMediaRecording = false;
 		this.mediaRecorder.stop();
 	};
 }
 
 new MyMediaRecorder();
-// new AudioTest();

@@ -1,22 +1,27 @@
 //modal vars
-let modal = document.getElementById("modal");
-let modalMain = document.getElementById("modalMain");
-let closeButton = document.getElementById("closeButton");
-let modalButton = document.getElementById("modalButton");
+const modal = document.getElementById("modal");
+const modalMain = document.getElementById("modalMain");
+const closeButton = document.getElementById("closeButton");
+const modalButton = document.getElementById("modalButton");
+const modalNiceButton = document.getElementById("modalNiceButton");
 
-modalButton.onclick = function () {
-  modalMain.style.transform = "scale(1)";
-  modal.style.transform = "scale(1)";
+const openModal = () => {
+  modalMain.style.transform = "scaleY(1)";
+  modal.style.transform = "scaleY(1)";
 };
 
-closeButton.onclick = function () {
-  modalMain.style.transform = "scale(0)";
-  modal.style.transform = "scale(0)";
+const closeModal = () => {
+  modalMain.style.transform = "scaleY(0)";
+  modal.style.transform = "scaleY(0)";
 };
+modalButton.onclick = () => openModal();
 
-modal.onclick = function (e) {
+closeButton.onclick = () => closeModal();
+
+modalNiceButton.onclick = () => closeModal();
+
+modal.onclick = (e) => {
   if (e.target.id === "modal") {
-    modalMain.style.transform = "scale(0)";
-    modal.style.transform = "scale(0)";
+    closeModal();
   }
 };

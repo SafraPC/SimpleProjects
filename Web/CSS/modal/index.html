@@ -11,18 +11,29 @@
     <div class="modal" id="modal">
       <div class="modalMain" id="modalMain">
         <div class="modalHeader">
-          <span>Modal title</span>
+          <div class="modalItem">
+            <h2>Modal title</h2>
+          </div>
           <button class="modalClose" id="closeButton">X</button>
         </div>
         <div class="modalBody">
-          <span>Modal body</span>
+          <div class="modalItem">
+            <h3>Modal body</h3>
+          </div>
         </div>
         <div class="modalFooter">
-          <span>Modal footer</span>
+          <div class="modalItem" style="align-items: center">
+            <button
+              class="button"
+              id="modalNiceButton"
+              style="margin-top: 0; margin-left: auto"
+            >
+              Nice!
+            </button>
+          </div>
         </div>
       </div>
     </div>
-
     <button class="button" id="modalButton">Open Modal</button>
   </body>
   <script src="index.js"></script>

@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 1rem;
+  height: 100%;
+  background-color: aliceblue;
+  justify-content: center;
+  align-items: center;
+}
+
+.textInput {
+  width: 50%;
+  border: 0.3px solid black;
+  padding: 0.3rem;
+  border-radius: 0.2rem;
+}
+
+.successButton {
+  margin-top: 1rem;
+  border: 0;
+  color: white;
+  background-color: yellowgreen;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+.successButton:hover {
+  background-color: green;
+}

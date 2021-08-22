@@ -9,7 +9,6 @@ const handleForm = (event) => {
 form.addEventListener("submit", handleForm);
 
 //Get values from inputCEP
-
 const getCEP = async () => {
   try {
     const data = await fetch(
@@ -40,3 +39,14 @@ const getCEP = async () => {
 };
 
 searchButton.onclick = getCEP;
+
+//turn input cep valid.
+const maskInput = (value) => {
+  return value
+    .replace(/\D/g, "")
+    .replace(/(\d{5})(\d)/, "$1-$2")
+    .replace(/(-\d{3})\d+?$/, "$1");
+};
+inputCEP.onchange = (e) => {
+  inputCEP.value = maskInput(e.target.value);
+};

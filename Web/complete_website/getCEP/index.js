@@ -3,10 +3,10 @@ const searchButton = document.getElementById("searchButton");
 const inputCEP = document.getElementById("cepInput");
 const form = document.getElementById("cepForm");
 const loading = document.getElementById("loading");
+const error = document.getElementById("error");
 //modal variables
 const modal = document.getElementById("modal");
 const modalMain = document.getElementById("modalMain");
-
 //Inside modal variables
 
 const modalTitle = document.getElementById("modalTitle");
@@ -59,6 +59,11 @@ const cepView = (data) => {
   }
 };
 
+const createError = (message) => {
+  error.innerText = message;
+  error.style.display = "block";
+};
+
 //Get values from inputCEP
 const getCEP = async () => {
   try {
@@ -77,25 +82,27 @@ const getCEP = async () => {
       if (data.status === 200) {
         const respData = await data.json();
         if (!respData.erro) {
+          error.style.display = "none";
           cepView(respData);
         } else {
-          console.log("CEP not found!");
+          createError("CEP not found!");
         }
         return;
       }
       if (data.status === 400) {
-        console.log("Invalid CEP!!");
+        createError("Invalid CEP!!");
         return;
       }
       if (data.status === 500) {
-        console.log("Server connect fail!");
+        createError("Server connect fail!");
         return;
       }
     } else {
-      console.log("Type a right CEP!");
+      createError("Type a right CEP!");
     }
   } catch (error) {
     loading.style.display = "none";
+    createError("Request error!");
     console.log("CEP Request Error =>", error);
     return;
   }

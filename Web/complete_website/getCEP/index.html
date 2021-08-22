@@ -18,13 +18,22 @@
         </div>
         <div class="modalBody">
           <div class="modalItem">
-            <div id="modalBody"></div>
+            <span id="cepBairro"></span>
+            <span id="cepCep"></span>
+            <span id="cepComplemento"></span>
+            <span id="cepDdd"></span>
+            <span id="cepGia"></span>
+            <span id="cepIbge"></span>
+            <span id="cepLocalidade"></span>
+            <span id="cepLogradouro"></span>
+            <span id="cepSiafi"></span>
+            <span id="cepUf"></span>
           </div>
         </div>
         <div class="modalFooter">
           <div class="modalItem" style="align-items: center">
             <button
-              class="button"
+              class="successButton"
               id="modalNiceButton"
               style="margin-top: 0; margin-left: auto"
             >
@@ -43,6 +52,9 @@
         id="cepInput"
       />
       <button class="successButton" id="searchButton">Search</button>
+      <span style="margin-top: 1rem; display: none" id="loading"
+        >Loading...</span
+      >
     </form>
   </body>
   <script type="text/javascript" src="./index.js"></script>

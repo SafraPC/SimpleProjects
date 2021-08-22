@@ -2,12 +2,19 @@
 const searchButton = document.getElementById("searchButton");
 const inputCEP = document.getElementById("cepInput");
 const form = document.getElementById("cepForm");
-
+const loading = document.getElementById("loading");
 //modal variables
 const modal = document.getElementById("modal");
 const modalMain = document.getElementById("modalMain");
+
+//Inside modal variables
+
+const modalTitle = document.getElementById("modalTitle");
+const modalBody = document.getElementById("modalBody");
+
 const closeButton = document.getElementById("closeButton");
 const modalNiceButton = document.getElementById("modalNiceButton");
+//finish modal variables
 
 //modal config
 const openModal = () => {
@@ -34,6 +41,20 @@ modal.onclick = (e) => {
 const cepView = (data) => {
   //modal vars
   if (data) {
+    document.getElementById("modalTitle").innerText = "Data from: " + data.cep;
+    document.getElementById("cepBairro").innerText = "Bairro :" + data.bairro;
+    document.getElementById("cepCep").innerText = "CEP: " + data.cep;
+    document.getElementById("cepComplemento").innerText =
+      "Complemento: " + data.complemento;
+    document.getElementById("cepDdd").innerText = "DDD: " + data.ddd;
+    document.getElementById("cepGia").innerText = "GIA: " + data.gia;
+    document.getElementById("cepIbge").innerText = "IBGE: " + data.ibge;
+    document.getElementById("cepLocalidade").innerText =
+      "Localidade: " + data.localidade;
+    document.getElementById("cepLogradouro").innerText =
+      "Logradouro: " + data.logradouro;
+    document.getElementById("cepSiafi").innerText = "Siafi: " + data.siafi;
+    document.getElementById("cepUf").innerText = "UF: " + data.uf;
     openModal();
   }
 };
@@ -42,7 +63,8 @@ const cepView = (data) => {
 const getCEP = async () => {
   try {
     const rgx = /^[0-9]{5}-[0-9]{3}$/;
-    if (rgx.test(inputCEP.value)) {
+    if (rgx.test(inputCEP.value) && loading.style.display === "none") {
+      loading.style.display = "block";
       const data = await fetch(
         `https://viacep.com.br/ws/${inputCEP.value}/json/`,
         {
@@ -51,24 +73,29 @@ const getCEP = async () => {
           cache: "default",
         }
       );
+      loading.style.display = "none";
       if (data.status === 200) {
         const respData = await data.json();
-        console.log(respData);
-        cepView(respData);
+        if (!respData.erro) {
+          cepView(respData);
+        } else {
+          console.log("CEP not found!");
+        }
         return;
       }
       if (data.status === 400) {
-        console.log("CEP Inválido!!");
+        console.log("Invalid CEP!!");
         return;
       }
       if (data.status === 500) {
-        console.log("Servidor em manutenção");
+        console.log("Server connect fail!");
         return;
       }
     } else {
-      console.log("Erro");
+      console.log("Type a right CEP!");
     }
   } catch (error) {
+    loading.style.display = "none";
     console.log("CEP Request Error =>", error);
     return;
   }

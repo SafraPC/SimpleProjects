@@ -102,4 +102,9 @@ body {
   padding: 1rem;
   display: flex;
   height: -webkit-fill-available;
+  flex-direction: column;
+}
+.modalItem span {
+  font-size: 16px;
+  margin-top: 1rem;
 }

@@ -2,11 +2,41 @@
 const searchButton = document.getElementById("searchButton");
 const inputCEP = document.getElementById("cepInput");
 const form = document.getElementById("cepForm");
-//cancel form refresh
-const handleForm = (event) => {
-  event.preventDefault();
+
+//modal variables
+const modal = document.getElementById("modal");
+const modalMain = document.getElementById("modalMain");
+const closeButton = document.getElementById("closeButton");
+const modalNiceButton = document.getElementById("modalNiceButton");
+
+//modal config
+const openModal = () => {
+  modalMain.style.transform = "scaleY(1)";
+  modal.style.transform = "scaleY(1)";
 };
-form.addEventListener("submit", handleForm);
+
+const closeModal = () => {
+  modalMain.style.transform = "scaleY(0)";
+  modal.style.transform = "scaleY(0)";
+};
+
+closeButton.onclick = () => closeModal();
+
+modalNiceButton.onclick = () => closeModal();
+
+modal.onclick = (e) => {
+  if (e.target.id === "modal") {
+    closeModal();
+  }
+};
+
+//open modal with cep data inside
+const cepView = (data) => {
+  //modal vars
+  if (data) {
+    openModal();
+  }
+};
 
 //Get values from inputCEP
 const getCEP = async () => {
@@ -22,6 +52,7 @@ const getCEP = async () => {
     if (data.status === 200) {
       const respData = await data.json();
       console.log(respData);
+      cepView(respData);
       return;
     }
     if (data.status === 400) {
@@ -39,6 +70,12 @@ const getCEP = async () => {
 };
 
 searchButton.onclick = getCEP;
+
+//cancel form refresh
+const handleForm = (event) => {
+  event.preventDefault();
+};
+form.addEventListener("submit", handleForm);
 
 //turn input cep valid.
 const maskInput = (value) => {

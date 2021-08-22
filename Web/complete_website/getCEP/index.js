@@ -41,27 +41,32 @@ const cepView = (data) => {
 //Get values from inputCEP
 const getCEP = async () => {
   try {
-    const data = await fetch(
-      `https://viacep.com.br/ws/${inputCEP.value}/json/`,
-      {
-        method: "GET",
-        mode: "cors",
-        cache: "default",
+    const rgx = /^[0-9]{5}-[0-9]{3}$/;
+    if (rgx.test(inputCEP.value)) {
+      const data = await fetch(
+        `https://viacep.com.br/ws/${inputCEP.value}/json/`,
+        {
+          method: "GET",
+          mode: "cors",
+          cache: "default",
+        }
+      );
+      if (data.status === 200) {
+        const respData = await data.json();
+        console.log(respData);
+        cepView(respData);
+        return;
       }
-    );
-    if (data.status === 200) {
-      const respData = await data.json();
-      console.log(respData);
-      cepView(respData);
-      return;
-    }
-    if (data.status === 400) {
-      console.log("CEP Inválido!!");
-      return;
-    }
-    if (data.status === 500) {
-      console.log("Servidor em manutenção");
-      return;
+      if (data.status === 400) {
+        console.log("CEP Inválido!!");
+        return;
+      }
+      if (data.status === 500) {
+        console.log("Servidor em manutenção");
+        return;
+      }
+    } else {
+      console.log("Erro");
     }
   } catch (error) {
     console.log("CEP Request Error =>", error);

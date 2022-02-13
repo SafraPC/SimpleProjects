@@ -16,9 +16,9 @@ const linguagensProgramacaoContent = document.getElementById(
 
 //Methods to change screen elements
 const inactiveAll = () => {
-	sobreMimContent.style.display = "none";
-	linguagensProgramacaoContent.style.display = "none";
-	locaisTrabalhadosContent.style.display = "none";
+	sobreMimContent.style.transform = "scaleY(0)";
+	linguagensProgramacaoContent.style.transform = "scaleY(0)";
+	locaisTrabalhadosContent.style.transform = "scaleY(0)";
 };
 
 const fadeIn = () => {
@@ -45,8 +45,8 @@ const fadeStructure = ({ event, screen }) => {
 const setSobreMimScreen = () => {
 	fadeStructure({
 		event: () => {
-			title.innerText = "Sobre Mim!";
-			sobreMimContent.style.display = "flex";
+			title.innerText = "Um pouco sobre mim...";
+			sobreMimContent.style.transform = "scaleY(1)";
 		},
 		screen: "sobre",
 	});
@@ -56,7 +56,7 @@ const setLocaisScreen = () => {
 	fadeStructure({
 		event: () => {
 			title.innerText = "Locais que trabalhei!";
-			locaisTrabalhadosContent.style.display = "flex";
+			locaisTrabalhadosContent.style.transform = "scaleY(1)";
 		},
 		screen: "locais",
 	});
@@ -66,7 +66,7 @@ const setLinguagensProgramacaoScreen = () => {
 	fadeStructure({
 		event: () => {
 			title.innerText = "Linguagens de Programação!";
-			linguagensProgramacaoContent.style.display = "flex";
+			linguagensProgramacaoContent.style.transform = "scaleY(1)";
 		},
 		screen: "linguagens",
 	});

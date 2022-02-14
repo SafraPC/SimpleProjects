@@ -64,21 +64,51 @@ body {
 }
 
 #title {
-	margin-top: 0.5rem;
 	padding: 1rem;
 	transition: 0.5s ease-in-out;
 	transform: scaleY(1);
 }
 .container {
 	display: flex;
+	width: 100%;
+	height: 100%;
 }
 
 .content {
-	margin-top: 0.5rem;
-	padding: 1rem;
+	width: 85%;
+	padding: 1.5rem;
 	transition: 0.5s ease-in-out;
 	transform: scaleY(0);
+	display: flex;
+	flex-direction: column;
 	position: absolute;
+}
+.content span {
+	font-size: 20px;
+	margin-top: 1rem;
+	text-align: justify;
+}
+.content ul {
+	padding: 1rem;
+	font-size: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	color: red;
+}
+.content ul li {
+	margin-top: 1rem;
+	list-style-type: disc;
+}
+.content ul li img {
+	margin-left: 1rem;
+	border-radius: 0.5rem;
+	width: 30px;
+	height: 30px;
+}
+.content ol li {
+	font-size: 20px;
+	margin-top: 1rem;
 }
 
 :root {

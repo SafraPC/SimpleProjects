@@ -76,3 +76,10 @@ const setLinguagensProgramacaoScreen = () => {
 sobreMim.onclick = setSobreMimScreen;
 locaisTrabalhados.onclick = setLocaisScreen;
 linguagensProgramacao.onclick = setLinguagensProgramacaoScreen;
+
+//If nobody click
+setTimeout(() => {
+	if (!localStorage.getItem("lastClicked_screen")) {
+		setSobreMimScreen();
+	}
+}, 3000);

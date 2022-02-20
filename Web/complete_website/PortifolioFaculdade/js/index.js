@@ -3,7 +3,7 @@ localStorage.clear();
 const sobreMim = document.getElementById("sobreMim");
 const locaisTrabalhados = document.getElementById("locaisTrabalhados");
 const linguagensProgramacao = document.getElementById("linguagensProgramacao");
-
+const verTudo = document.getElementById("verTudo");
 //screen content that will be change
 const title = document.getElementById("title");
 const sobreMimContent = document.getElementById("sobreMimContent");
@@ -13,6 +13,7 @@ const locaisTrabalhadosContent = document.getElementById(
 const linguagensProgramacaoContent = document.getElementById(
 	"linguagensProgramacaoContent"
 );
+const containerItems = document.getElementById("containerItems");
 
 //Methods to change screen elements
 const inactiveAll = () => {
@@ -45,6 +46,7 @@ const fadeStructure = ({ event, screen }) => {
 const setSobreMimScreen = () => {
 	fadeStructure({
 		event: () => {
+			containerItems.classList.remove("gridContent");
 			title.innerText = "Um pouco sobre mim...";
 			sobreMimContent.style.transform = "scaleY(1)";
 		},
@@ -55,6 +57,7 @@ const setSobreMimScreen = () => {
 const setLocaisScreen = () => {
 	fadeStructure({
 		event: () => {
+			containerItems.classList.remove("gridContent");
 			title.innerText = "Locais que trabalhei!";
 			locaisTrabalhadosContent.style.transform = "scaleY(1)";
 		},
@@ -65,6 +68,7 @@ const setLocaisScreen = () => {
 const setLinguagensProgramacaoScreen = () => {
 	fadeStructure({
 		event: () => {
+			containerItems.classList.remove("gridContent");
 			title.innerText = "Linguagens de Programação!";
 			linguagensProgramacaoContent.style.transform = "scaleY(1)";
 		},
@@ -72,14 +76,24 @@ const setLinguagensProgramacaoScreen = () => {
 	});
 };
 
+const setVerTudoScreen = () => {
+	fadeStructure({
+		event: () => {
+			title.innerText = "Todos os Tópicos!";
+			containerItems.classList.add("gridContent");
+		},
+		screen: "all",
+	});
+};
+
 //attribuing elements on header items click
 sobreMim.onclick = setSobreMimScreen;
 locaisTrabalhados.onclick = setLocaisScreen;
 linguagensProgramacao.onclick = setLinguagensProgramacaoScreen;
-
+verTudo.onclick = setVerTudoScreen;
 //If nobody click
 setTimeout(() => {
 	if (!localStorage.getItem("lastClicked_screen")) {
-		setSobreMimScreen();
+		setVerTudoScreen();
 	}
 }, 3000);

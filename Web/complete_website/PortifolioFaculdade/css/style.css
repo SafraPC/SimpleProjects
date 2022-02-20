@@ -83,6 +83,26 @@ body {
 	flex-direction: column;
 	position: absolute;
 }
+
+.gridContent {
+	display: grid;
+	width: 100%;
+	height: 100%;
+	grid-template-areas:
+		"sobre_mim"
+		"locais_trabalhados"
+		"linguagens_de_programação";
+	grid-template-columns: 50% 50%;
+	grid-template-rows: 50 50%;
+	padding: 1rem;
+}
+.gridContent div {
+	transform: scaleY(1) !important;
+	position: relative !important;
+	border: 1px solid silver;
+	margin: 1rem;
+}
+
 .content span {
 	font-size: 20px;
 	margin-top: 1rem;

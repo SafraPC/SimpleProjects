@@ -1,0 +1,132 @@
+body {
+	outline: 0;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	min-height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	font: 14px "Roboto", sans-serif;
+	-webkit-font-font-smoothing: antialiased !important;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background-image: url("../img/backgroundImage.jpg");
+	background-size: cover;
+}
+
+label {
+	font-size: 18px;
+}
+
+select {
+	border: 0;
+	padding: 0.4rem;
+	border-radius: 0.3rem;
+	background-color: #fff;
+}
+
+select:focus {
+	background-color: #ccc;
+}
+
+input {
+	border: 0;
+	padding: 0.4rem;
+	border-radius: 0.3rem;
+}
+
+input:focus {
+	background-color: #ccc;
+}
+
+input[type="checkbox"] {
+	height: 20px;
+	width: 20px;
+}
+
+input[type="radio"] {
+	height: 20px;
+	width: 20px;
+}
+
+fieldset {
+	padding: 1rem;
+	border-color: #6bc9f5;
+	border-radius: 0.3rem;
+}
+
+legend {
+	font-size: 20px;
+}
+
+textarea {
+	border: none;
+	height: 140px;
+	resize: none;
+	border-radius: 0.4rem;
+}
+
+.centerItem {
+	display: flex;
+	align-items: center;
+}
+.centerItem label {
+	margin-left: 1rem;
+}
+
+.verticalSection {
+	display: flex;
+	flex-direction: column;
+}
+
+.horizontalSection {
+	display: flex;
+	width: 100%;
+}
+.horizontalSection fieldset {
+	width: 50%;
+}
+
+.formSectionStyle {
+	display: flex;
+	flex-direction: column;
+	padding: 0.5rem;
+}
+
+.formulario {
+	padding: 1rem;
+	background-color: #64bce6;
+	border-radius: 0.3rem;
+	width: 800px;
+	height: auto;
+	box-shadow: 1px 1px 10px 1px black;
+}
+
+.formSectionStyle input {
+	margin-top: 0.5rem;
+}
+
+.finalForm {
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.finalForm button {
+	background-color: #fff;
+	border: none;
+	border-radius: 0.3rem;
+	padding: 1rem;
+	font-size: 18px;
+	margin-top: 1rem;
+	transition: background-color 0.4s ease;
+	cursor: pointer;
+}
+
+.finalForm button:hover {
+	background-color: #ccc;
+}

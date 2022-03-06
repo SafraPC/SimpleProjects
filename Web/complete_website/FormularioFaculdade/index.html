@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Form Facul</title>
+</head>
+
+<body>
+    <form class="formulario">
+        <fieldset>
+            <legend>Cadastro Geral</legend>
+            <div class="horizontalSection">
+                <fieldset>
+                    <legend>Dados Pessoais</legend>
+                    <div class="formSectionStyle">
+                        <label>
+                            Nome completo:
+                        </label>
+                        <input type="text" required placeholder="ex: Marcelin Almeida das Bombas" />
+                    </div>
+                    <div class="formSectionStyle">
+                        <label>
+                            Senha:
+                        </label>
+                        <input type="password" required placeholder="ex: 123" />
+                    </div>
+                    <div class="formSectionStyle">
+                        <label>
+                            Nascimento:
+                        </label>
+                        <input type="date" required />
+                    </div>
+                    <div class="formSectionStyle">
+                        <label>
+                            Foto de Perfil:
+                        </label>
+                        <input type="file" required />
+                    </div>
+
+                    <div class="formSectionStyle">
+                        <label>
+                            Profissão:
+                        </label>
+                        <select required>
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                            <option value="mercedes">Mercedes</option>
+                            <option value="audi">Audi</option>
+                        </select>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Localização</legend>
+                    <div class="formSectionStyle">
+                        <label>
+                            E-mail:
+                        </label>
+                        <input type="email" required placeholder="Ex: marcelin_reidelas@hotmail.com" />
+                    </div>
+                    <div class="formSectionStyle">
+                        <label>
+                            Rua:
+                        </label>
+                        <input type="text" required placeholder="Ex: Rua dos Miranhas" />
+                    </div>
+                </fieldset>
+            </div>
+            <fieldset>
+                <legend>
+                    Faixa Etária
+                </legend>
+                <div class="verticalSection">
+                    <div class="centerItem">
+                        <input type="radio" id="age1" required name="age" value="20">
+                        <label>Até 20 anos</label>
+                        </input>
+                    </div>
+                    <div class="centerItem">
+                        <input type="radio" id="age2" required name="age" value="30">
+                        <label>Entre 20 - 30 anos</label>
+                        </input>
+                    </div>
+                    <div class="centerItem">
+                        <input type="radio" id="age3" required name="age" value="40">
+                        <label>Entre 30 - 40 anos</label>
+                        </input>
+                    </div>
+                    <div class="centerItem">
+                        <input type="radio" id="age4" required name="age" value="50">
+                        <label>Entre 40 - 50 anos</label>
+                        </input>
+                    </div>
+                    <div class="centerItem">
+                        <input type="radio" id="age5" required name="age" value="60">
+                        <label>Entre 50 - 60 anos</label>
+                        </input>
+                    </div>
+                    <div class="centerItem">
+                        <input type="radio" id="age6" required name="age" value="70">
+                        <label>Mais de 60</label>
+                        </input>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>
+                    Esportes que Pratica
+                </legend>
+                <div class="verticalSection">
+                    <div class="centerItem">
+                        <input type="checkbox" id="futebol" name="esportes" value="Bike">
+                        <label for="futebol">Futebol</label>
+                    </div>
+                    <div class="centerItem">
+                        <input type="checkbox" id="natacao" name="esportes" value="Car">
+                        <label for="natacao">Natação</label>
+                    </div>
+                    <div class="centerItem">
+                        <input type="checkbox" id="Luta" name="esportes" value="Boat">
+                        <label for="Luta">Luta</label>
+                    </div>
+                </div>
+            </fieldset>
+        </fieldset>
+        <fieldset>
+            <legend>Comentário</legend>
+            <div class="formSectionStyle">
+                <label>
+                    Mensagem:
+                </label>
+                <textarea required></textarea>
+            </div>
+        </fieldset>
+        <div class="finalForm">
+            <button type="reset">Limpar</button>
+            <button type="submit">Cadastrar</button>
+        </div>
+    </form>
+</body>
+
+</html>

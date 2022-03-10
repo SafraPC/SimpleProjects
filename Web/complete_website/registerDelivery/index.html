@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Delivery</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/main.js" defer></script>
+</head>
+
+<body>
+    <div class="apresentation">
+        <h1>Hamburguer Delivery</h1>
+        <img src="./img/hamburguer.svg" />
+    </div>
+    <form class="page">
+        <div class="content">
+            <div id="registerUser">
+                <div class="labeledInput">
+                    <label>Nome:</label>
+                    <input id="userName" required placeholder="Ex: Marcelin das Bombas" type="text" />
+                </div>
+                <div class="labeledInput">
+                    <label>Número de telefone:</label>
+                    <input id="phoneNumber" required placeholder="Ex: (19) 9 9587-9292" type="text" />
+                </div>
+                <div class="labeledInput">
+                    <label>CEP:</label>
+                    <input id="cep" required placeholder="Ex: 13059073" type="text" />
+                </div>
+                <div class="labeledInput">
+                    <label>Rua:</label>
+                    <input readonly id="street" required placeholder="Ex: Rua dos Miranhas" type="text" />
+                </div>
+                <div class="labeledInput">
+                    <label>Endereço:</label>
+                    <input readonly id="address" required placeholder="Ex: Bairro dos Miranhas" type="text" />
+                </div>
+                <div class="designButton">
+                    <button id="handleSubmit" type="submit">Cadastrar</button>
+                </div>
+            </div>
+
+            <div id="deliveryArea">
+                <div class="total">
+                    <h1>Total: <span id="total">0R$</span></h1>
+                </div>
+                <h1>Qual lanche deseja comprar?</h1>
+                <div class="labeledPrices">
+                    <label>X-Burguer <span>10R$</span></label>
+                    <input id="burguer" required placeholder="0" type="number" />
+                </div>
+                <div class="labeledPrices">
+                    <label>X-Salada <span>14$</span></label>
+
+                    <input id="salad" required placeholder="0" type="number" />
+                </div>
+                <div class="labeledPrices">
+                    <label>X-Tudo <span>20$</span></label>
+                    <input id="all" required placeholder="0" type="number" />
+                </div>
+                <div class="designButton">
+                    <button id="verifyButton" type="button">Calcular</button>
+                </div>
+                <div class="designButton">
+                    <button type="submit" id="handleConfirm"> Pra Casa!</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

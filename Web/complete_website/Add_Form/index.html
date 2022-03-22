@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script defer src="./js/index.js"></script>
+    <title>Tabela de Pacientes</title>
+</head>
+
+<body>
+    <main>
+        <form class="form">
+            <div class="flag">
+                <h3>Clínica de Nutrição</h3>
+            </div>
+            <div class="formPage">
+                <h1>Cadastrar novo paciente</h1>
+                <hr />
+                <div class="inputLabel">
+                    <label>Nome:</label>
+                    <input id="inputName" class="inputText" type="Ex: Joaquim" placeholder="Marcelin das Bombas" />
+                </div>
+                <div class="horizontalSection">
+                    <div class="inputLabel">
+                        <label>Peso:</label>
+                        <input id="inputPeso" type="number" class="inputText" placeholder="Ex:75 " />
+                    </div>
+                    <div class="inputLabel">
+                        <label>Altura:</label>
+                        <input id="inputAltura" type="number" class="inputText" placeholder="Ex: 185" />
+                    </div>
+                    <div class="inputLabel">
+                        <label>% de Gordura:</label>
+                        <input id="inputGordura" type="number" class="inputText" placeholder="Ex: 10" />
+                    </div>
+                </div>
+                <div class="buttonSection">
+                    <button id="buttonSubmit" class="addButton" type="submit">Adicionar</button>
+                </div>
+            </div>
+        </form>
+        <!-- Table below -->
+        <table id="table">
+            <tr>
+                <th>Nome</th>
+                <th>Peso</th>
+                <th>Altura</th>
+                <th>Gordura</th>
+                <th>IMC</th>
+            </tr>
+
+        </table>
+    </main>
+
+</body>
+
+</html

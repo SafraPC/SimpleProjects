@@ -4,43 +4,30 @@ const inputAltura = document.getElementById("inputAltura");
 const inputGordura = document.getElementById("inputGordura");
 const buttonSubmit = document.getElementById("buttonSubmit");
 const table = document.getElementById("table");
-const pacientes = [
-	{
-		nome: "Jonas",
-		peso: 70,
-		altura: 185,
-		gordura: 30,
-		imc: 30,
-	},
-	{
-		nome: "Jonas",
-		peso: 70,
-		altura: 185,
-		gordura: 30,
-		imc: 30,
-	},
-];
 
 const handleSubmit = (e) => {
 	e.preventDefault();
-	pacientes.forEach((item) => {
-		const tr = document.createElement("tr");
-		const name = document.createElement("td");
-		name.innerText = item.nome;
-		tr.appendChild(name);
-		const peso = document.createElement("td");
-		peso.innerText = item.peso;
-		tr.appendChild(peso);
-		const altura = document.createElement("td");
-		altura.innerText = item.altura;
-		tr.appendChild(altura);
-		const gordura = document.createElement("td");
-		gordura.innerText = item.gordura;
-		tr.appendChild(gordura);
-		const imc = document.createElement("td");
-		imc.innerText = item.imc;
-		tr.appendChild(imc);
-		table.appendChild(tr);
-	});
+
+	const tr = document.createElement("tr");
+	const name = document.createElement("td");
+	name.innerText = inputName.value;
+	tr.appendChild(name);
+	const peso = document.createElement("td");
+	peso.innerText = inputPeso.value;
+	tr.appendChild(peso);
+	const altura = document.createElement("td");
+	altura.innerText = inputAltura.value;
+	tr.appendChild(altura);
+	const gordura = document.createElement("td");
+	gordura.innerText = inputGordura.value;
+	tr.appendChild(gordura);
+	/**
+	 * : Peso ÷ (altura x altura)
+	 */
+	const imc = document.createElement("td");
+	const imcResult = inputPeso.value / (inputAltura.value * inputAltura.value);
+	imc.innerText = imcResult.toFixed(2);
+	tr.appendChild(imc);
+	table.appendChild(tr);
 };
 buttonSubmit.onclick = handleSubmit;

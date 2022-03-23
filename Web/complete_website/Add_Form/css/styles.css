@@ -15,8 +15,9 @@ body {
 
 .form {
 	height: 100%;
-	width: 99.8%;
+	width: 97.8%;
 	border: 1px solid silver;
+	align-self: center;
 }
 .flag {
 	background-color: black;

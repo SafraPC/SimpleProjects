@@ -1,64 +1,54 @@
 <!DOCTYPE html>
 <html lang="pt">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>CEP Fetch Application</title>
-  </head>
-  <body>
-    <div class="modal" id="modal">
-      <div class="modalMain" id="modalMain">
-        <div class="modalHeader">
-          <div class="modalItem">
-            <h2 id="modalTitle"></h2>
-          </div>
-          <button class="modalClose" id="closeButton">X</button>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <title>CEP Fetch Application</title>
+</head>
+
+<body>
+  <div class="modal" id="modal">
+    <div class="modalMain" id="modalMain">
+      <div class="modalHeader">
+        <div class="modalItem">
+          <h2 id="modalTitle">_</h2>
         </div>
-        <div class="modalBody">
-          <div class="modalItem">
-            <span id="cepBairro"></span>
-            <span id="cepCep"></span>
-            <span id="cepComplemento"></span>
-            <span id="cepDdd"></span>
-            <span id="cepGia"></span>
-            <span id="cepIbge"></span>
-            <span id="cepLocalidade"></span>
-            <span id="cepLogradouro"></span>
-            <span id="cepSiafi"></span>
-            <span id="cepUf"></span>
-          </div>
+        <button class="modalClose" id="closeButton">X</button>
+      </div>
+      <div class="modalBody">
+        <div class="modalItem">
+          <span id="cepBairro"></span>
+          <span id="cepCep"></span>
+          <span id="cepComplemento"></span>
+          <span id="cepDdd"></span>
+          <span id="cepGia"></span>
+          <span id="cepIbge"></span>
+          <span id="cepLocalidade"></span>
+          <span id="cepLogradouro"></span>
+          <span id="cepSiafi"></span>
+          <span id="cepUf"></span>
         </div>
-        <div class="modalFooter">
-          <div class="modalItem" style="align-items: center">
-            <button
-              class="successButton"
-              id="modalNiceButton"
-              style="margin-top: 0; margin-left: auto"
-            >
-              Close
-            </button>
-          </div>
+      </div>
+      <div class="modalFooter">
+        <div class="modalItem" style="align-items: center">
+          <button class="successButton" id="modalNiceButton" style="margin-top: 0; margin-left: auto">
+            Close
+          </button>
         </div>
       </div>
     </div>
-    <form id="cepForm" class="mainContent">
-      <span
-        style="margin-bottom: 1rem; display: none; color: red"
-        id="error"
-      ></span>
-      <input
-        type="text"
-        class="textInput"
-        placeholder="Type your CEP here"
-        id="cepInput"
-      />
-      <button class="successButton" id="searchButton">Search</button>
-      <span style="margin-top: 1rem; display: none" id="loading"
-        >Loading...</span
-      >
-    </form>
-  </body>
-  <script type="text/javascript" src="./index.js"></script>
+  </div>
+  <form id="cepForm" class="mainContent">
+    <span style="margin-bottom: 1rem; display: none; color: red" id="error"></span>
+    <input type="text" class="textInput" placeholder="Type your CEP here" id="cepInput" />
+    <button class="successButton" id="searchButton">Search</button>
+    <span style="margin-top: 1rem; display: none" id="loading">Loading...</span>
+  </form>
+
+  <script src="./js/index.js"></script>
+</body>
+
 </html>
